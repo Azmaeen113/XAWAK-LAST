@@ -128,24 +128,7 @@ const HeroSection: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-[#FFD700]/40 blur-2xl rounded-full z-10" />
 
-                {/* Orbiting Planets with pulse effects - adjusted for larger logo */}
-                <div className="absolute inset-0 -m-6 md:-m-9 animate-planet-orbit-1 z-0">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 md:w-8 md:h-8 rounded-full bg-[#FFD700] shadow-lg shadow-[#FFD700]/50 animate-planet-pulse-1"></div>
-                </div>
-
-                <div className="absolute inset-0 -m-12 md:-m-18 animate-planet-orbit-2 z-0">
-                  <div className="absolute top-1/4 right-0 translate-x-1/2 w-4 h-4 md:w-7 md:h-7 rounded-full bg-[#1E90FF] shadow-lg shadow-[#1E90FF]/50 animate-planet-pulse-2"></div>
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-6 h-6 md:w-9 md:h-9 rounded-full bg-[#FF4500] shadow-lg shadow-[#FF4500]/50 animate-planet-pulse-3"></div>
-                </div>
-
-                <div className="absolute inset-0 -m-24 md:-m-36 animate-planet-orbit-3 z-0">
-                  <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-7 h-7 md:w-10 md:h-10 rounded-full bg-[#9370DB] shadow-lg shadow-[#9370DB]/50 animate-planet-pulse-1"></div>
-                </div>
-
-                {/* Orbit Paths - adjusted for larger logo */}
-                <div className="absolute inset-0 -m-6 md:-m-9 rounded-full border border-[#FFD700]/20 z-0"></div>
-                <div className="absolute inset-0 -m-12 md:-m-18 rounded-full border border-[#1E90FF]/15 z-0"></div>
-                <div className="absolute inset-0 -m-24 md:-m-36 rounded-full border border-[#9370DB]/10 z-0"></div>
+                {/* Removed orbiting planets effect */}
               </div>
             )}
           </div>
