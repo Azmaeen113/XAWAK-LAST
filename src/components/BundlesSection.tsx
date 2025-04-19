@@ -86,9 +86,9 @@ const BundleCard: React.FC<BundleProps> = ({
 const BundlesSection: React.FC = () => {
   const bundles: BundleProps[] = [
     {
-      title: "Starter Bundle",
+      title: "Marshall",
       price: "100",
-      description: "Perfect for beginners exploring the XAWAK ecosystem",
+      description: "Pioneer Alpha",
       features: [
         "1,000 XAWAK Tokens",
         "1 Basic NFT",
@@ -99,9 +99,9 @@ const BundlesSection: React.FC = () => {
       color: "[#87CEEB]"
     },
     {
-      title: "Premium Bundle",
+      title: "Constellation",
       price: "500",
-      description: "Enhanced benefits for serious XAWAK enthusiasts",
+      description: "Pioneer Beta",
       features: [
         "10,000 XAWAK Tokens",
         "3 Premium NFTs",
@@ -114,9 +114,9 @@ const BundlesSection: React.FC = () => {
       color: "[#FFD700]"
     },
     {
-      title: "Ultimate Bundle",
+      title: "Intergalactic",
       price: "1000",
-      description: "Maximum benefits for dedicated XAWAK supporters",
+      description: "Pioneer Gamma",
       features: [
         "25,000 XAWAK Tokens",
         "5 Exclusive NFTs",

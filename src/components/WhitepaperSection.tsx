@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FileText, Download, ExternalLink, BookOpen } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
 const WhitepaperSection: React.FC = () => {
+  const [whitepaperContent, setWhitepaperContent] = useState<string>('');
+
+  useEffect(() => {
+    // Fetch the whitepaper content
+    fetch('/whitepaper.md')
+      .then(response => response.text())
+      .then(text => setWhitepaperContent(text))
+      .catch(error => console.error('Error loading whitepaper:', error));
+  }, []);
+
   return (
     <section id="whitepaper" className="relative py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,42 +27,61 @@ const WhitepaperSection: React.FC = () => {
         </div>
 
         {/* Whitepaper Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Side - Whitepaper Preview */}
           <div className="relative group">
-            <div className="aspect-[3/4] bg-gradient-to-b from-[#1E3A8A]/10 to-[#6A0DAD]/10 rounded-lg overflow-hidden border border-[#FFD700]/20 shadow-lg shadow-[#FFD700]/10 transition-all duration-500 group-hover:shadow-[#FFD700]/30 group-hover:border-[#FFD700]/40">
-              {/* Document Preview */}
-              <div className="absolute inset-0 flex flex-col p-8">
-                {/* Document Header */}
-                <div className="mb-8 text-center">
-                  <div className="flex justify-center mb-4">
-                    <img
-                      src="/logooo2.jpg"
-                      alt="XAWAK Logo"
-                      className="w-16 h-16 object-contain rounded-full"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-orbitron font-bold text-white mb-2">XAWAK Whitepaper</h3>
-                  <p className="text-[#FFD700] text-sm">v1.0.0 | 2025</p>
+            <div className="bg-gradient-to-b from-[#1E3A8A]/10 to-[#6A0DAD]/10 rounded-lg overflow-hidden border border-[#FFD700]/20 shadow-lg shadow-[#FFD700]/10 transition-all duration-500 group-hover:shadow-[#FFD700]/30 group-hover:border-[#FFD700]/40 p-8">
+              {/* Document Header */}
+              <div className="mb-8 text-center">
+                <div className="flex justify-center mb-4">
+                  <img
+                    src="/logooo2.jpg"
+                    alt="XAWAK Logo"
+                    className="w-16 h-16 object-contain rounded-full"
+                  />
                 </div>
+                <h3 className="text-2xl font-orbitron font-bold text-white mb-2">XAWAK Whitepaper</h3>
+                <p className="text-[#FFD700] text-sm">v1.0.0 | 2024</p>
+              </div>
 
-                {/* Document Content Preview */}
-                <div className="space-y-4 flex-grow">
-                  <div className="h-2 bg-white/20 rounded-full w-full"></div>
-                  <div className="h-2 bg-white/20 rounded-full w-5/6"></div>
-                  <div className="h-2 bg-white/20 rounded-full w-4/6"></div>
-                  <div className="h-2 bg-white/20 rounded-full w-full"></div>
-                  <div className="h-2 bg-white/20 rounded-full w-3/6"></div>
-                  <div className="h-2 bg-white/20 rounded-full w-5/6"></div>
-                  <div className="h-2 bg-white/20 rounded-full w-4/6"></div>
-                  <div className="h-2 bg-white/20 rounded-full w-full"></div>
-                  <div className="h-2 bg-white/20 rounded-full w-3/6"></div>
+              {/* Document Content Preview */}
+              <div className="prose prose-invert max-w-none font-['Orbitron']">
+                <div className="whitepaper-content">
+                  <ReactMarkdown
+                    components={{
+                      h1: ({ children }) => (
+                        <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#FFA500] mb-6 font-['Orbitron']">
+                          {children}
+                        </h1>
+                      ),
+                      h2: ({ children }) => (
+                        <h2 className="text-2xl font-bold text-[#FFD700] mb-4 font-['Orbitron']">
+                          {children}
+                        </h2>
+                      ),
+                      p: ({ children }) => (
+                        <p className="text-gray-300 mb-4 leading-relaxed font-['Orbitron'] text-sm">
+                          {children}
+                        </p>
+                      ),
+                      ul: ({ children }) => (
+                        <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2 font-['Orbitron'] text-sm">
+                          {children}
+                        </ul>
+                      ),
+                      li: ({ children }) => (
+                        <li className="text-gray-300 font-['Orbitron'] text-sm">{children}</li>
+                      ),
+                    }}
+                  >
+                    {whitepaperContent}
+                  </ReactMarkdown>
                 </div>
+              </div>
 
-                {/* Watermark */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-                  <FileText className="w-48 h-48 text-[#FFD700]" />
-                </div>
+              {/* Watermark */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+                <FileText className="w-48 h-48 text-[#FFD700]" />
               </div>
             </div>
 
@@ -77,34 +107,34 @@ const WhitepaperSection: React.FC = () => {
                     Technology
                   </h4>
                   <p className="text-gray-300 text-sm">
-                    Detailed explanation of our proprietary blockchain technology
+                    Built on the XRPL (XRP Ledger) blockchain
                   </p>
                 </div>
                 <div className="bg-gradient-to-br from-[#1E3A8A]/20 to-[#6A0DAD]/20 p-4 rounded-lg border border-[#FFD700]/10">
                   <h4 className="font-orbitron font-bold text-[#FFD700] mb-2 flex items-center">
                     <BookOpen className="w-5 h-5 mr-2" />
-                    Tokenomics
+                    Community
                   </h4>
                   <p className="text-gray-300 text-sm">
-                    In-depth analysis of token distribution and economic model
+                    Powered by humor, relatability, and grassroots engagement
                   </p>
                 </div>
                 <div className="bg-gradient-to-br from-[#1E3A8A]/20 to-[#6A0DAD]/20 p-4 rounded-lg border border-[#FFD700]/10">
                   <h4 className="font-orbitron font-bold text-[#FFD700] mb-2 flex items-center">
                     <BookOpen className="w-5 h-5 mr-2" />
-                    Roadmap
+                    Philosophy
                   </h4>
                   <p className="text-gray-300 text-sm">
-                    Detailed timeline of development milestones and future plans
+                    Gamifies profound concepts like consciousness and universal exploration
                   </p>
                 </div>
                 <div className="bg-gradient-to-br from-[#1E3A8A]/20 to-[#6A0DAD]/20 p-4 rounded-lg border border-[#FFD700]/10">
                   <h4 className="font-orbitron font-bold text-[#FFD700] mb-2 flex items-center">
                     <BookOpen className="w-5 h-5 mr-2" />
-                    Use Cases
+                    Ecosystem
                   </h4>
                   <p className="text-gray-300 text-sm">
-                    Real-world applications and integration possibilities
+                    Features NFTs, games, and social tokens for an engaging experience
                   </p>
                 </div>
               </div>
@@ -112,7 +142,9 @@ const WhitepaperSection: React.FC = () => {
               {/* Read Online Button */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <a
-                  href="#"
+                  href="/whitepaper.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#FFD700] to-[#FFA500] rounded-lg text-black font-bold transition-transform duration-300 hover:scale-105 shadow-lg shadow-[#FFD700]/20"
                 >
                   <ExternalLink className="w-5 h-5 mr-2" />

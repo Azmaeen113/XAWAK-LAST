@@ -78,7 +78,7 @@ const HeroSection: React.FC = () => {
     }
   };
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-[#1E3A8A]/20 via-[#6A0DAD]/20 to-transparent" />
@@ -113,7 +113,7 @@ const HeroSection: React.FC = () => {
                   transform: logoAnimationState === 'initial'
                     ? 'scale(1) translate(0, 0)'
                     : logoAnimationState === 'growing'
-                    ? 'scale(2) translate(0, 0)'
+                    ? 'scale(1.9) translate(0, 100px)'
                     : 'scale(1) translate(-150%, -350px)',
                   opacity: 1,
                   position: 'relative',
@@ -241,6 +241,20 @@ const HeroSection: React.FC = () => {
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection('#community');
+                // Add a small delay to ensure the section is loaded before scrolling to the CTA buttons
+                setTimeout(() => {
+                  const ctaSection = document.querySelector('#community .text-center:last-child');
+                  if (ctaSection) {
+                    const navbarHeight = document.querySelector('nav')?.getBoundingClientRect().height || 80;
+                    const elementPosition = ctaSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - navbarHeight - 20;
+                    
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                }, 100);
               }}
             >
               Join the Odyssey
@@ -249,14 +263,28 @@ const HeroSection: React.FC = () => {
 
             <a
               href="#about"
-              className="group px-8 py-4 border-2 border-[#1E3A8A] text-white rounded-lg hover:bg-[#1E3A8A]/20 transition-all duration-200 font-semibold flex items-center gap-2"
+              className="group px-8 py-4 border-2 border-[#FFD700] text-[#FFD700] rounded-lg hover:bg-[#FFD700] hover:text-black transform hover:scale-105 transition-all duration-200 font-semibold flex items-center gap-2"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection('#about');
+                scrollToSection('#community');
+                // Add a small delay to ensure the section is loaded before scrolling to the CTA buttons
+                setTimeout(() => {
+                  const ctaSection = document.querySelector('#community .text-center:last-child');
+                  if (ctaSection) {
+                    const navbarHeight = document.querySelector('nav')?.getBoundingClientRect().height || 80;
+                    const elementPosition = ctaSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - navbarHeight - 20;
+                    
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                }, 100);
               }}
             >
               Explore XAWAK
-              <Star className="w-5 h-5 group-hover:rotate-90 transition-transform" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
 

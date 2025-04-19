@@ -1,37 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import StarBackground from './components/StarBackground';
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import TokenomicsSection from './components/TokenomicsSection';
 import RoadmapSection from './components/RoadmapSection';
-import NftSection from './components/NftSection';
+import BundlesSection from './components/BundlesSection';
 import TeamSection from './components/TeamSection';
 import CommunitySection from './components/CommunitySection';
 import WhitepaperSection from './components/WhitepaperSection';
-import BundlesSection from './components/BundlesSection';
 import ScrollVideoSection from './components/ScrollVideoSection';
 import Footer from './components/Footer';
 import SparkleEffect from './components/SparkleEffect';
+import { useMobileDetection } from './hooks/useMobileDetection';
 
 function App() {
-  // State to track if we're on a mobile device
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Detect mobile devices
-  useEffect(() => {
-    const checkMobile = () => {
-      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      const isSmallScreen = window.innerWidth <= 768;
-      setIsMobile(isTouchDevice || isSmallScreen);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // No cursor effect toggle needed - using normal cursor
+  const isMobile = useMobileDetection();
 
   // Use normal cursor for all devices
   useEffect(() => {
@@ -45,7 +29,6 @@ function App() {
   const renderSparkleEffect = () => {
     // Only show sparkle effect on desktop
     if (isMobile) return null;
-
     return <SparkleEffect />;
   };
 
@@ -61,6 +44,7 @@ function App() {
       <AboutSection />
       <TokenomicsSection />
       <RoadmapSection />
+      <BundlesSection />
       <TeamSection />
       <CommunitySection />
       <WhitepaperSection />

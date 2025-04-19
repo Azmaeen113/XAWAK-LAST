@@ -91,12 +91,12 @@ const Navigation: React.FC = () => {
     { name: 'Roadmap', href: '#roadmap' },
     { name: 'Cosmic Bundles', href: '#bundles' },
     { name: 'Team', href: '#team' },
-    { name: 'Whitepaper', href: 'https://github.com/xawak' },
+    { name: 'Whitepaper', href: '/XAWAK.pdf' },
   ];
 
   const handleNavClick = (href: string) => {
-    // Handle external links (like Whitepaper)
-    if (href.startsWith('http')) {
+    // Handle external links and PDF files
+    if (href.startsWith('http') || href.endsWith('.pdf')) {
       window.open(href, '_blank', 'noopener,noreferrer');
       setIsMobileMenuOpen(false);
       return;
@@ -166,7 +166,7 @@ const Navigation: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-32">
           {/* Logo with mini planets */}
           <div
             className="flex-shrink-0 flex items-center group transition-all duration-1000 ease-in-out"
@@ -179,7 +179,7 @@ const Navigation: React.FC = () => {
               <img
                 src="/logooo2.jpg"
                 alt="XAWAK Logo"
-                className="h-14 w-14 md:h-16 md:w-16 object-contain rounded-full transition-all duration-300 group-hover:scale-105 shadow-lg shadow-[#1E90FF]/20 z-10 relative"
+                className="h-28 w-28 md:h-32 md:w-32 object-contain rounded-full transition-all duration-300 group-hover:scale-105 shadow-lg shadow-[#1E90FF]/20 z-10 relative"
               />
 
               {/* Mini orbiting planets - only visible on hover */}
@@ -213,7 +213,7 @@ const Navigation: React.FC = () => {
                   className={`
                     px-3 py-2 rounded-md text-sm font-medium transition-all duration-200
                     ${
-                      item.href.startsWith('http')
+                      item.href.startsWith('http') || item.href.endsWith('.pdf')
                         ? 'text-[#FFD700] border border-[#FFD700]/50 hover:bg-[#FFD700]/10'
                         : activeSection === item.href.substring(1)
                           ? 'text-[#FFD700] bg-white/5'
@@ -222,7 +222,7 @@ const Navigation: React.FC = () => {
                   `}
                 >
                   {item.name}
-                  {item.href.startsWith('http') && <FileText className="inline ml-1 h-3 w-3" />}
+                  {(item.href.startsWith('http') || item.href.endsWith('.pdf')) && <FileText className="inline ml-1 h-3 w-3" />}
                 </button>
               ))}
             </div>
@@ -259,7 +259,7 @@ const Navigation: React.FC = () => {
               className={`
                 block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-all duration-200
                 ${
-                  item.href.startsWith('http')
+                  item.href.startsWith('http') || item.href.endsWith('.pdf')
                     ? 'text-[#FFD700] border border-[#FFD700]/50 hover:bg-[#FFD700]/10 flex items-center'
                     : activeSection === item.href.substring(1)
                       ? 'text-[#FFD700] bg-white/5'
@@ -268,7 +268,7 @@ const Navigation: React.FC = () => {
               `}
             >
               {item.name}
-              {item.href.startsWith('http') && <FileText className="ml-2 h-4 w-4" />}
+              {(item.href.startsWith('http') || item.href.endsWith('.pdf')) && <FileText className="ml-2 h-4 w-4" />}
             </button>
           ))}
         </div>

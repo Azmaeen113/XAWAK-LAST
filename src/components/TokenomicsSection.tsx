@@ -187,6 +187,59 @@ const TokenomicsSection: React.FC = () => {
           </p>
         </div>
 
+        {/* Token Supply and Deflationary Mechanism - Moved to top */}
+        <div className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {tokenDetails.slice(0, 2).map((detail, index) => (
+            <div
+              key={index}
+              className="p-6 rounded-lg text-center transition-all duration-500 transform hover:scale-105 relative group overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.2), rgba(106, 13, 173, 0.1))',
+                backdropFilter: 'blur(10px)',
+              }}
+            >
+              {/* Animated background glow */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  background: 'radial-gradient(circle at center, rgba(255, 215, 0, 0.15) 0%, transparent 70%)',
+                }}
+              ></div>
+
+              {/* Floating particles */}
+              <div className="absolute inset-0 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                {[...Array(5)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-1 h-1 rounded-full bg-[#FFD700] animate-float"
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                      animationDelay: `${Math.random() * 3}s`,
+                      opacity: 0.6,
+                    }}
+                  ></div>
+                ))}
+              </div>
+
+              {/* Content */}
+              <div className="relative z-10">
+                <p className="text-gray-300 text-sm mb-3 font-medium">{detail.label}</p>
+                <p className="text-[#FFD700] font-bold text-xl font-orbitron">{detail.value}</p>
+              </div>
+
+              {/* Bottom border glow */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-all duration-500"
+                style={{
+                  background: 'linear-gradient(to right, transparent, #FFD700, transparent)',
+                  boxShadow: '0 0 10px rgba(255, 215, 0, 0.5)',
+                }}
+              ></div>
+            </div>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Enhanced 3D Pie Chart */}
           <div className="relative" ref={chartRef}>
@@ -440,9 +493,9 @@ const TokenomicsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Enhanced Token Details */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {tokenDetails.map((detail, index) => (
+        {/* Enhanced Token Details - Now only showing Liquidity and Staking Rewards */}
+        <div className="mt-20 grid grid-cols-2 gap-6">
+          {tokenDetails.slice(2, 4).map((detail, index) => (
             <div
               key={index}
               className="p-6 rounded-lg text-center transition-all duration-500 transform hover:scale-105 relative group overflow-hidden"
