@@ -1,37 +1,41 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const InfinityLogoSection: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Simple direct approach to play the video
-    const playVideo = () => {
-      const video = videoRef.current;
-      if (!video) return;
+    const video = videoRef.current;
+    if (!video) return;
 
-      // Set video properties
-      video.muted = true;
-      video.loop = true;
-      video.playsInline = true;
-
-      // Try to play
-      video.play().catch(error => {
-        console.error('Video play failed:', error);
-      });
+    // Function to handle video loading and playback
+    const handleVideoPlay = async () => {
+      try {
+        // Set video properties
+        video.defaultMuted = true;
+        video.muted = true;
+        video.playsInline = true;
+        
+        // Load and play the video
+        await video.play();
+      } catch (error) {
+        console.error('Video autoplay failed:', error);
+        // Fallback: try playing on user interaction
+        document.addEventListener('touchstart', () => {
+          video.play().catch(console.error);
+        }, { once: true });
+      }
     };
 
-    // Play video when component mounts
-    playVideo();
+    // Start video playback
+    handleVideoPlay();
 
-    // Add click event to document to help with autoplay restrictions
-    const handleDocumentClick = () => {
-      playVideo();
-    };
-
-    document.addEventListener('click', handleDocumentClick, { once: true });
-
+    // Cleanup
     return () => {
-      document.removeEventListener('click', handleDocumentClick);
+      if (video) {
+        video.pause();
+        video.src = '';
+        video.load();
+      }
     };
   }, []);
 
@@ -50,12 +54,22 @@ const InfinityLogoSection: React.FC = () => {
           <video
             ref={videoRef}
             className="absolute inset-0 w-full h-full object-cover"
-            src="/planetjupiter.mp4" /* Using planetjupiter.mp4 instead since it's a copy of infinity.mp4 */
+            src="/jupiterfinal.mp4"
             loop
             muted
             playsInline
             autoPlay
+            preload="auto"
             controls={false}
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            x5-video-player-type="h5"
+            x5-video-player-fullscreen="true"
+            style={{
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%'
+            }}
           />
         </div>
 
