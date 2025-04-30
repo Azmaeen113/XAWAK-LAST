@@ -1,22 +1,12 @@
 import React from 'react';
-import { MessageCircle, Users, Send } from 'lucide-react';
+import { Users } from 'lucide-react';
 
 const CommunitySection: React.FC = () => {
   const stats = [
     {
-      icon: <Users className="w-8 h-8 text-[#FFD700]" />,
+      icon: <Users className="w-12 h-12 text-[#FFD700]" />,
       value: '50K+',
       label: 'Community Members'
-    },
-    {
-      icon: <MessageCircle className="w-8 h-8 text-[#FFD700]" />,
-      value: '100K+',
-      label: 'Discord Members'
-    },
-    {
-      icon: <Send className="w-8 h-8 text-[#FFD700]" />,
-      value: '75K+',
-      label: 'Telegram Users'
     }
   ];
 
@@ -50,15 +40,16 @@ const CommunitySection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        {/* Centered Community Members stat */}
+        <div className="max-w-md mx-auto mb-16">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="bg-space-blue/10 rounded-lg p-8 text-center transform hover:scale-105 transition-all duration-300"
+              className="bg-space-blue/10 rounded-lg p-8 text-center transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
             >
               <div className="flex justify-center mb-4">{stat.icon}</div>
-              <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-              <div className="text-gray-400">{stat.label}</div>
+              <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
+              <div className="text-gray-400 text-lg">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -83,20 +74,12 @@ const CommunitySection: React.FC = () => {
         </div>
 
         <div className="text-center">
-          <div className="inline-flex space-x-4">
-            <a
-              href="#"
-              className="px-6 py-3 bg-[#FFD700] text-black rounded-lg hover:bg-[#FFE44D] transition-all duration-300"
-            >
-              Join Discord
-            </a>
-            <a
-              href="#"
-              className="px-6 py-3 border-2 border-[#FFD700] text-[#FFD700] rounded-lg hover:bg-[#FFD700] hover:text-black transition-all duration-300"
-            >
-              Join Telegram
-            </a>
-          </div>
+          <a
+            href="#"
+            className="px-8 py-4 bg-[#FFD700] text-black rounded-lg hover:bg-[#FFE44D] transition-all duration-300 font-semibold"
+          >
+            Join Community
+          </a>
         </div>
       </div>
     </section>

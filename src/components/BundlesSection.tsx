@@ -3,7 +3,6 @@ import { Package, Check, Star, Zap } from 'lucide-react';
 
 interface BundleProps {
   title: string;
-  price: string;
   description: string;
   features: string[];
   icon: React.ReactNode;
@@ -13,7 +12,6 @@ interface BundleProps {
 
 const BundleCard: React.FC<BundleProps> = ({
   title,
-  price,
   description,
   features,
   icon,
@@ -48,14 +46,6 @@ const BundleCard: React.FC<BundleProps> = ({
           </div>
         </div>
 
-        {/* Price */}
-        <div className="mb-6">
-          <div className="flex items-baseline">
-            <span className="text-3xl font-bold text-white">{price}</span>
-            <span className="text-gray-400 ml-2">USDT</span>
-          </div>
-        </div>
-
         {/* Features */}
         <div className="flex-grow mb-6">
           <ul className="space-y-3">
@@ -87,7 +77,6 @@ const BundlesSection: React.FC = () => {
   const bundles: BundleProps[] = [
     {
       title: "Marshall",
-      price: "100",
       description: "Pioneer Alpha",
       features: [
         "1,000 XAWAK Tokens",
@@ -100,7 +89,6 @@ const BundlesSection: React.FC = () => {
     },
     {
       title: "Constellation",
-      price: "500",
       description: "Pioneer Beta",
       features: [
         "10,000 XAWAK Tokens",
@@ -115,7 +103,6 @@ const BundlesSection: React.FC = () => {
     },
     {
       title: "Intergalactic",
-      price: "1000",
       description: "Pioneer Gamma",
       features: [
         "25,000 XAWAK Tokens",
@@ -154,7 +141,6 @@ const BundlesSection: React.FC = () => {
         <div className="mt-16 text-center">
           <p className="text-gray-400 max-w-2xl mx-auto">
             All bundles include access to the XAWAK platform and future updates.
-            Prices are subject to change based on market conditions.
           </p>
           <div className="mt-8">
             <button className="px-8 py-3 bg-transparent border border-[#FFD700] rounded-lg text-[#FFD700] font-bold transition-all duration-300 hover:bg-[#FFD700]/10">

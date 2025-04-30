@@ -28,19 +28,9 @@ const AboutSection: React.FC = () => {
 
   const features = [
     {
-      icon: <Star className="w-6 h-6 text-[#FFD700]" />,
-      title: 'Revolutionary Technology',
-      description: 'Pushing the boundaries of blockchain innovation'
-    },
-    {
-      icon: <Zap className="w-6 h-6 text-[#FFD700]" />,
-      title: 'Lightning Fast',
-      description: 'Instant transactions at minimal cost'
-    },
-    {
-      icon: <Globe className="w-6 h-6 text-[#FFD700]" />,
-      title: 'Global Access',
-      description: 'Available worldwide with no restrictions'
+      icon: <Star className="w-7 h-7 text-[#FFD700]" />,
+      title: 'Built on XRPL',
+      description: 'For lightning fast transactions'
     }
   ];
 
@@ -49,40 +39,42 @@ const AboutSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <h2 className="text-4xl font-orbitron font-bold text-white">
+            <h2 className="text-6xl font-orbitron font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#FFA500] mb-4">
               The XAWAK Universe
             </h2>
-            <p className="text-gray-300 text-lg">
-              XAWAK represents the next evolution in blockchain technology,
-              combining cutting-edge innovation with unparalleled security and
-              scalability. Our mission is to create a decentralized ecosystem
-              that transcends traditional boundaries.
+            <p className="text-gray-200 text-xl leading-relaxed font-['Space_Grotesk'] tracking-wide mb-8 max-w-2xl">
+              <span className="text-[#FFD700]/80">XAWAK draws inspiration from the infinite cosmos</span>, encouraging users to expand their minds and consciousness
+              alongside the ever-expanding universe. By gazing outward at the grand design of the cosmos and inward at
+              the vastness of human consciousness, XAWAK fosters a deeper appreciation of existence and the mysteries of nature.
             </p>
-            <div className="space-y-6">
+            <div className="mt-2">
               {features.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 p-2 bg-space-blue/20 rounded-lg">
+                <div
+                  key={index}
+                  className="flex items-center space-x-4 p-6 rounded-lg bg-gradient-to-br from-[#1E3A8A]/10 to-[#6A0DAD]/10 border border-[#FFD700]/20 hover:border-[#FFD700]/40 transition-all duration-300 shadow-lg shadow-[#FFD700]/5 hover:shadow-[#FFD700]/20 max-w-md"
+                >
+                  <div className="flex-shrink-0 p-4 bg-gradient-to-br from-[#1E3A8A]/30 to-[#6A0DAD]/30 rounded-lg border border-[#FFD700]/40 shadow-lg shadow-[#FFD700]/10">
                     {feature.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-1">
+                    <h3 className="text-2xl font-orbitron font-bold text-[#FFD700] mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-400">{feature.description}</p>
+                    <p className="text-gray-200 text-lg font-['Space_Grotesk']">{feature.description}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <button className="px-6 py-3 bg-transparent border-2 border-[#FFD700] text-[#FFD700] rounded-md hover:bg-[#FFD700] hover:text-black transition-all duration-300">
-              Learn More
+            <button className="mt-4 px-8 py-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black font-bold rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg shadow-[#FFD700]/20 font-orbitron">
+              Explore the Cosmos
             </button>
           </div>
 
-          <div className="relative">
+          <div className="relative group">
             <div className="aspect-square relative">
               {/* Jupiter Image */}
-              <div className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-full bg-black">
-                <div className="relative w-full h-full overflow-hidden rounded-full">
+              <div className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-full bg-black shadow-xl shadow-[#FFD700]/10 group-hover:shadow-[#FFD700]/30 transition-all duration-700">
+                <div className="relative w-full h-full overflow-hidden rounded-full border-4 border-[#FFD700]/10 group-hover:border-[#FFD700]/30 transition-all duration-700">
                   <video
                     ref={videoRef}
                     src="/jupiterfinal.mp4"
@@ -90,17 +82,19 @@ const AboutSection: React.FC = () => {
                     loop
                     muted
                     playsInline
-                    className="absolute w-auto h-auto min-w-full min-h-full max-w-none object-cover"
+                    className="absolute w-auto h-auto min-w-full min-h-full max-w-none object-cover animate-slow-rotate"
                     style={{
                       position: 'absolute',
                       top: '50%',
                       left: '50%',
-                      transform: 'translate(-50%, -50%) rotate(-15deg)',
-                      filter: 'brightness(1.1) contrast(1.1)'
+                      filter: 'brightness(1.2) contrast(1.2)'
                     }}
                   />
                 </div>
               </div>
+
+              {/* Cosmic particles effect */}
+              <div className="absolute -inset-10 bg-gradient-to-r from-[#FFD700]/0 via-[#FFD700]/5 to-[#FFD700]/0 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10"></div>
             </div>
           </div>
         </div>

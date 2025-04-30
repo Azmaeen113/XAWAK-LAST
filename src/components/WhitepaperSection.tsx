@@ -55,22 +55,22 @@ const WhitepaperSection: React.FC = () => {
                         </h1>
                       ),
                       h2: ({ children }) => (
-                        <h2 className="text-2xl font-bold text-[#FFD700] mb-4 font-['Orbitron']">
+                        <h2 className="text-2xl font-bold text-[#FFD700] mb-4 mt-12 font-['Orbitron']">
                           {children}
                         </h2>
                       ),
                       p: ({ children }) => (
-                        <p className="text-gray-300 mb-4 leading-relaxed font-['Orbitron'] text-sm">
+                        <p className="text-gray-300 mb-6 leading-relaxed font-['Orbitron'] text-sm">
                           {children}
                         </p>
                       ),
                       ul: ({ children }) => (
-                        <ul className="list-disc list-inside text-gray-300 mb-4 space-y-2 font-['Orbitron'] text-sm">
+                        <ul className="list-disc list-inside text-gray-300 mb-8 space-y-2 font-['Orbitron'] text-sm">
                           {children}
                         </ul>
                       ),
                       li: ({ children }) => (
-                        <li className="text-gray-300 font-['Orbitron'] text-sm">{children}</li>
+                        <li className="text-gray-300 font-['Orbitron'] text-sm mb-2">{children}</li>
                       ),
                     }}
                   >

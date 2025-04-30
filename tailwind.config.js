@@ -20,6 +20,7 @@ export default {
       },
       animation: {
         'spin-slow': 'spin 20s linear infinite',
+        'slow-rotate': 'slow-rotate 60s linear infinite',
         'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
         'float': 'float 6s ease-in-out infinite',
         'scroll': 'scroll 2s ease-in-out infinite',
@@ -28,6 +29,17 @@ export default {
         'particle-move': 'particle-move 4s ease-in-out infinite',
       },
       keyframes: {
+        'slow-rotate': {
+          '0%': {
+            transform: 'translate(-50%, -50%) rotate(-15deg)',
+          },
+          '50%': {
+            transform: 'translate(-50%, -50%) rotate(5deg)',
+          },
+          '100%': {
+            transform: 'translate(-50%, -50%) rotate(-15deg)',
+          },
+        },
         'pulse-glow': {
           '0%, 100%': {
             opacity: 1,

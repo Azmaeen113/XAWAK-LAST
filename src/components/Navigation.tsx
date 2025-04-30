@@ -109,9 +109,9 @@ const Navigation: React.FC = () => {
       const navbar = document.querySelector('nav');
       const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 80;
 
-      // Calculate position with a bit of extra padding for better visual spacing
+      // Calculate position with minimal offset to show full section
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - navbarHeight - 20;
+      const offsetPosition = elementPosition + window.scrollY - (navbarHeight - 16); // Reduced offset to show more of section
 
       // Use custom smooth scrolling for better performance
       const startPosition = window.scrollY;

@@ -1,16 +1,10 @@
 import React from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
 
 interface TeamMember {
   name: string;
   role: string;
   image: string;
   bio: string;
-  social: {
-    twitter?: string;
-    linkedin?: string;
-    github?: string;
-  };
 }
 
 const TeamSection: React.FC = () => {
@@ -53,45 +47,27 @@ const TeamSection: React.FC = () => {
   const team: TeamMember[] = [
     {
       name: 'Marshall',
-      role: 'Moonshot',
+      role: 'Moon Shot',
       image: '/pioneer1.jpg',
-      bio: 'Leading the quantum revolution in blockchain technology',
-      social: {
-        twitter: '#',
-        linkedin: '#',
-        github: '#'
-      }
+      bio: 'Leading the quantum revolution in blockchain technology'
     },
     {
       name: 'Constellation',
       role: 'Commander',
       image: '/pioneer2.jpg',
-      bio: 'Architecting the future of decentralized systems',
-      social: {
-        twitter: '#',
-        linkedin: '#',
-        github: '#'
-      }
+      bio: 'Architecting the future of decentralized systems'
     },
     {
       name: 'Intergalactic',
       role: 'Pilot',
       image: '/pioneer3.jpg',
-      bio: 'Mapping the trajectory of blockchain evolution',
-      social: {
-        twitter: '#',
-        linkedin: '#'
-      }
+      bio: 'Mapping the trajectory of blockchain evolution'
     },
     {
       name: 'Mia',
       role: 'Memeonaut',
       image: '/pioneer4.jpg',
-      bio: 'Crafting the infrastructure of tomorrow',
-      social: {
-        github: '#',
-        linkedin: '#'
-      }
+      bio: 'Crafting the infrastructure of tomorrow'
     }
   ];
 
@@ -142,92 +118,67 @@ const TeamSection: React.FC = () => {
                   style={{ animationDuration: `${4 + index}s` }}
                 ></div>
 
-                <div
-                  className={`relative overflow-hidden rounded-lg aspect-square shadow-lg transition-all duration-500`}
-                  style={{
-                    boxShadow: `0 4px 20px rgba(${color.rgb.replace('rgb(', '').replace(')', '')}, 0.1)`
-                  }}
-                >
-                  {/* Background glow effect */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-radial ${color.glow} opacity-0 group-hover:opacity-100 transition-all duration-500 animate-rgb-pulse`}
-                    style={{ animationDuration: `${3 + index}s` }}
-                  ></div>
-
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-70 group-hover:opacity-90 transition-all duration-500" />
-
-                  {/* Cosmic Overlay with animation and RGB */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-r ${color.gradient} mix-blend-overlay animate-pulse-glow`}
-                    style={{ animationDuration: `${8 + index}s` }}
-                  />
-
-                  {/* Interactive Particles */}
-                  <div className="absolute inset-0 transition-opacity duration-500">
-                    {[...Array(5)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute w-1.5 h-1.5 rounded-full animate-ping-slow"
-                        style={{
-                          backgroundColor: color.base,
-                          top: `${20 + Math.random() * 60}%`,
-                          left: `${20 + Math.random() * 60}%`,
-                          animationDelay: `${i * 0.5}s`,
-                          animationDuration: `${2 + Math.random() * 3}s`,
-                          opacity: 0.6,
-                          filter: 'brightness(1.5)'
-                        }}
-                      />
-                    ))}
+                <div className="flex flex-col">
+                  {/* Name and Role - Always visible */}
+                  <div className="text-center mb-4">
+                    <h3 className="text-xl font-bold text-white font-orbitron">{member.name}</h3>
+                    <p className={`${color.text} font-semibold animate-rgb-text-pulse`} style={{ animationDuration: `${3 + index}s` }}>{member.role}</p>
                   </div>
 
-                  {/* Member info overlay */}
-                  <div className="absolute inset-x-0 bottom-0 p-4 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <h3 className="text-xl font-bold text-white mb-1 font-orbitron">{member.name}</h3>
-                    <p className={`${color.text} font-semibold mb-2 animate-rgb-text-pulse`} style={{ animationDuration: `${3 + index}s` }}>{member.role}</p>
+                  <div
+                    className={`relative overflow-hidden rounded-lg aspect-square shadow-lg transition-all duration-500`}
+                    style={{
+                      boxShadow: `0 4px 20px rgba(${color.rgb.replace('rgb(', '').replace(')', '')}, 0.1)`
+                    }}
+                  >
+                    {/* Background glow effect */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-radial ${color.glow} opacity-0 group-hover:opacity-100 transition-all duration-500 animate-rgb-pulse`}
+                      style={{ animationDuration: `${3 + index}s` }}
+                    ></div>
+
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-70 group-hover:opacity-90 transition-all duration-500" />
+
+                    {/* Cosmic Overlay with animation and RGB */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-r ${color.gradient} mix-blend-overlay animate-pulse-glow`}
+                      style={{ animationDuration: `${8 + index}s` }}
+                    />
+
+                    {/* Interactive Particles */}
+                    <div className="absolute inset-0 transition-opacity duration-500">
+                      {[...Array(5)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="absolute w-1.5 h-1.5 rounded-full animate-ping-slow"
+                          style={{
+                            backgroundColor: color.base,
+                            top: `${20 + Math.random() * 60}%`,
+                            left: `${20 + Math.random() * 60}%`,
+                            animationDelay: `${i * 0.5}s`,
+                            animationDuration: `${2 + Math.random() * 3}s`,
+                            opacity: 0.6,
+                            filter: 'brightness(1.5)'
+                          }}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                <div
-                  className="relative mt-6 p-4 rounded-lg backdrop-blur-sm transition-all duration-500"
-                  style={{
-                    background: `linear-gradient(135deg, rgba(${color.rgb.replace('rgb(', '').replace(')', '')}, 0.1), rgba(30, 58, 138, 0.1), rgba(106, 13, 173, 0.1))`
-                  }}
-                >
-                  <p className="text-gray-300 text-sm mb-4">{member.bio}</p>
-
-                  <div className="flex justify-center space-x-4">
-                    {member.social.twitter && (
-                      <a
-                        href={member.social.twitter}
-                        className="text-gray-400 hover:scale-110 transition-all duration-300 transform"
-                      >
-                        <Twitter className="w-5 h-5 hover:animate-rgb-text-pulse" style={{ color: color.base }} />
-                      </a>
-                    )}
-                    {member.social.linkedin && (
-                      <a
-                        href={member.social.linkedin}
-                        className="text-gray-400 hover:scale-110 transition-all duration-300 transform"
-                      >
-                        <Linkedin className="w-5 h-5 hover:animate-rgb-text-pulse" style={{ color: color.base }} />
-                      </a>
-                    )}
-                    {member.social.github && (
-                      <a
-                        href={member.social.github}
-                        className="text-gray-400 hover:scale-110 transition-all duration-300 transform"
-                      >
-                        <Github className="w-5 h-5 hover:animate-rgb-text-pulse" style={{ color: color.base }} />
-                      </a>
-                    )}
+                  <div
+                    className="relative mt-4 p-4 rounded-lg backdrop-blur-sm transition-all duration-500"
+                    style={{
+                      background: `linear-gradient(135deg, rgba(${color.rgb.replace('rgb(', '').replace(')', '')}, 0.1), rgba(30, 58, 138, 0.1), rgba(106, 13, 173, 0.1))`
+                    }}
+                  >
+                    <p className="text-gray-300 text-sm text-center">{member.bio}</p>
                   </div>
                 </div>
               </div>

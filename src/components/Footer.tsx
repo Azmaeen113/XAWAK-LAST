@@ -53,14 +53,6 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="#nfts"
-                  className="text-gray-400 hover:text-[#FFD700] transition-colors duration-300"
-                >
-                  NFTs
-                </a>
-              </li>
-              <li>
-                <a
                   href="#bundles"
                   className="text-gray-400 hover:text-[#FFD700] transition-colors duration-300"
                 >
