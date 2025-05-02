@@ -42,7 +42,7 @@ const AboutSection: React.FC = () => {
             <h2 className="text-6xl font-orbitron font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#FFA500] mb-4">
               The XAWAK Universe
             </h2>
-            <p className="text-gray-200 text-xl leading-relaxed font-['Space_Grotesk'] tracking-wide mb-8 max-w-2xl">
+            <p className="text-gray-300 text-xl leading-relaxed font-roboto tracking-wide mb-8 max-w-2xl">
               <span className="text-[#FFD700]/80">XAWAK draws inspiration from the infinite cosmos</span>, encouraging users to expand their minds and consciousness
               alongside the ever-expanding universe. By gazing outward at the grand design of the cosmos and inward at
               the vastness of human consciousness, XAWAK fosters a deeper appreciation of existence and the mysteries of nature.
@@ -60,7 +60,7 @@ const AboutSection: React.FC = () => {
                     <h3 className="text-2xl font-orbitron font-bold text-[#FFD700] mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-200 text-lg font-['Space_Grotesk']">{feature.description}</p>
+                    <p className="text-gray-300 text-lg font-roboto">{feature.description}</p>
                   </div>
                 </div>
               ))}
