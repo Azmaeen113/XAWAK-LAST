@@ -123,7 +123,7 @@ const BundlesSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-orbitron font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#FFA500] mb-4 whitespace-nowrap">
-            XAWAK Bundles
+            XAWAK Bundles <span className="text-2xl text-gray-300 font-normal">(Coming Soon)</span>
           </h2>
           <p className="text-gray-300 max-w-3xl mx-auto px-4">
             <span className="inline-block">Choose the perfect bundle to begin</span> <span className="inline-block">your journey in the XAWAK ecosystem</span>
