@@ -1,8 +1,55 @@
 import React, { useRef, useEffect } from 'react';
-import { Star, Zap, Globe } from 'lucide-react';
+import { Star, Zap, Globe, ArrowRight } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Function to handle smooth scrolling to a section
+  const scrollToSection = (sectionId: string) => {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      const navbarHeight = document.querySelector('nav')?.getBoundingClientRect().height || 80;
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navbarHeight - 20;
+
+      // Use custom smooth scrolling for better performance
+      const startPosition = window.scrollY;
+      const distance = offsetPosition - startPosition;
+      const duration = 800; // ms - longer duration for smoother feel
+      let startTime: number | null = null;
+
+      // Easing function for natural motion
+      const easeInOutCubic = (t: number): number => {
+        return t < 0.5
+          ? 4 * t * t * t
+          : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      };
+
+      const animateScroll = (currentTime: number) => {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const easedProgress = easeInOutCubic(progress);
+
+        window.scrollTo({
+          top: startPosition + distance * easedProgress,
+          behavior: 'auto' // Use our custom animation instead of browser's smooth scroll
+        });
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animateScroll);
+        } else {
+          // Ensure we're exactly at the right position when animation ends
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'auto'
+          });
+        }
+      };
+
+      requestAnimationFrame(animateScroll);
+    }
+  };
 
   // Effect to handle smooth video looping
   useEffect(() => {
@@ -65,8 +112,12 @@ const AboutSection: React.FC = () => {
                 </div>
               ))}
             </div>
-            <button className="mt-4 px-8 py-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black font-bold rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg shadow-[#FFD700]/20 font-orbitron">
+            <button
+              onClick={() => scrollToSection('#bundles')}
+              className="mt-4 px-8 py-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-black font-bold rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg shadow-[#FFD700]/20 font-orbitron group flex items-center gap-2"
+            >
               Explore the Cosmos
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
