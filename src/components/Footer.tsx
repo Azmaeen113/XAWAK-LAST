@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-gray-400">
-              Transcending the boundaries of blockchain technology
+              Transending the boundaries of time and space...
             </p>
           </div>
 

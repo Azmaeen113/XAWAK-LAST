@@ -52,7 +52,7 @@ const TeamSection: React.FC = () => {
       bio: 'Leading the quantum revolution in blockchain technology'
     },
     {
-      name: 'Constellation',
+      name: 'Coinstellation',
       role: 'Commander',
       image: '/pioneer2.jpg',
       bio: 'Architecting the future of decentralized systems'
