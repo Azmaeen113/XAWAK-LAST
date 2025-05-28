@@ -76,7 +76,7 @@ const AboutSection: React.FC = () => {
   const features = [
     {
       icon: <Star className="w-7 h-7 text-[#FFD700]" />,
-      title: 'Built on XRPL',
+      title: 'Built on SOLANA Blockchain',
       description: 'For lightning fast transactions'
     }
   ];

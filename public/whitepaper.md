@@ -2,7 +2,7 @@
 
 ## Introduction
 
-XAWAK (or X-AWAK) is not just a memecoin—it's a cosmic journey that merges humor, imagination, and the boundless potential of human consciousness. Built on the XRPL (XRP Ledger) blockchain, XAWAK combines the virality of memecoins with the allure of cosmic exploration, creating a unique ecosystem that bridges entertainment, intellect, and financial empowerment.
+XAWAK (or X-AWAK) is not just a memecoin—it's a cosmic journey that merges humor, imagination, and the boundless potential of human consciousness. Launched on SOLANA blockchain, XAWAK combines the virality of memecoins with the allure of cosmic exploration, creating a unique ecosystem that bridges entertainment, intellect, and financial empowerment.
 
 ## Key Features
 
