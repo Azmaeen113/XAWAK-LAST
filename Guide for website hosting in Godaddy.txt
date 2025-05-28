@@ -1,0 +1,43 @@
+Guide for website hosting in GoDaddy
+====================================
+
+Step 1: Prepare Your Project for Deployment
+-------------------------------------------
+1. Ensure your project is production-ready. Run any build commands (e.g., `npm run build` or `yarn build`).
+2. The build output is usually found in the `dist` or `build` folder. For Vite projects, it's typically `dist`.
+
+Step 2: Log in to GoDaddy
+-------------------------
+1. Go to https://www.godaddy.com/ and log in to your account.
+2. Navigate to "My Products" and find your Website Hosting Starter package.
+3. Click "Manage" to access your hosting dashboard.
+
+Step 3: Access File Manager or FTP
+----------------------------------
+1. In the hosting dashboard, look for "File Manager" or set up an FTP client (like FileZilla) using the credentials provided by GoDaddy.
+2. Open the `public_html` directory. This is the root directory for your website.
+
+Step 4: Upload Your Project Files
+---------------------------------
+1. Delete any default files (like `index.html`) in `public_html` if you don't need them.
+2. Upload the contents of your build output folder (e.g., everything inside `dist`) into `public_html`.
+   - Do NOT upload the `dist` folder itself, just its contents.
+3. If using FTP, drag and drop the files from your local machine to the `public_html` directory.
+
+Step 5: Test Your Website
+-------------------------
+1. Visit your domain (e.g., `https://yourdomain.com`).
+2. Your website should now be live!
+
+Step 6: Troubleshooting
+-----------------------
+- If you see a GoDaddy default page, make sure your `index.html` is in `public_html` and named correctly.
+- For single-page applications (SPA), you may need to set up a redirect or rewrite rule. Contact GoDaddy support for help with `.htaccess` if needed.
+
+Step 7: (Optional) Set Up Domain and SSL
+----------------------------------------
+1. Ensure your domain is pointing to the correct hosting package.
+2. Set up SSL (HTTPS) from the GoDaddy dashboard if available in your package.
+
+---
+This guide is for static sites (HTML, CSS, JS). For backend/server-side code, GoDaddy's starter package may have limitations. Check GoDaddy documentation for advanced setups. 

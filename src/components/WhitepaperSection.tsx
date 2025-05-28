@@ -107,7 +107,7 @@ const WhitepaperSection: React.FC = () => {
                     Technology
                   </h4>
                   <p className="text-gray-300 text-sm">
-                    Launched on SOLANA blockchain
+                    Built on the XRPL (XRP Ledger) blockchain
                   </p>
                 </div>
                 <div className="bg-gradient-to-br from-[#1E3A8A]/20 to-[#6A0DAD]/20 p-4 rounded-lg border border-[#FFD700]/10">

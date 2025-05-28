@@ -56,7 +56,8 @@ const TokenomicsSection: React.FC = () => {
   ];
 
   const tokenDetails = [
-    { label: 'Total Supply', value: '1,000,000,000 XAWAK' },
+    { label: 'Total Supply', value: '100,000,000,000 XAWAK' },
+    { label: 'Deflationary', value: 'Token Burning' },
     { label: 'Liquidity', value: 'Locked' },
     { label: 'Staking Rewards', value: 'Mind Staking' }
   ];
@@ -181,15 +182,14 @@ const TokenomicsSection: React.FC = () => {
             XAWAK Tokenomics
           </h2>
           <p className="text-gray-300 max-w-3xl mx-auto">
-            Each coin symbolizes one light-year in space. Airdrops are distributed to cosmic believers and community members,
-            fostering growth and engagement across the XAWAK universe.
+            Each coin symbolizes one light-year in space. Our deflationary mechanism burns tokens with each transaction,
+            simulating the "expansion of thought." Airdrops are distributed to cosmic believers and community members.
           </p>
         </div>
 
-        {/* Token Supply - Moved to top */}
-        <div className="mb-16 flex justify-center">
-          <div className="max-w-md w-full">
-            {tokenDetails.slice(0, 1).map((detail, index) => (
+        {/* Token Supply and Deflationary Mechanism - Moved to top */}
+        <div className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {tokenDetails.slice(0, 2).map((detail, index) => (
             <div
               key={index}
               className="p-6 rounded-lg text-center transition-all duration-500 transform hover:scale-105 relative group overflow-hidden"
@@ -237,8 +237,7 @@ const TokenomicsSection: React.FC = () => {
                 }}
               ></div>
             </div>
-            ))}
-          </div>
+          ))}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -496,7 +495,7 @@ const TokenomicsSection: React.FC = () => {
 
         {/* Enhanced Token Details - Now only showing Liquidity and Staking Rewards */}
         <div className="mt-20 grid grid-cols-2 gap-6">
-          {tokenDetails.slice(1, 3).map((detail, index) => (
+          {tokenDetails.slice(2, 4).map((detail, index) => (
             <div
               key={index}
               className="p-6 rounded-lg text-center transition-all duration-500 transform hover:scale-105 relative group overflow-hidden"
